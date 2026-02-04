@@ -1,0 +1,12 @@
+<h2>Shipping Prices</h2>
+
+<div class="shipping-container">
+  @for (shipping of shippingCosts; track shipping.type) {
+    <div class="shipping-item">
+      <span class="shipping-type">{{ shipping.type }}</span>
+      <span class="shipping-price">${{ shipping.price }}</span>
+    </div>
+  }
+</div>
+
+<a routerLink="/cart" class="back-link">Back to Cart</a>

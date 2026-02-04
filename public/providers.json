@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "TechPhone Inc",
+    "description": "Leading manufacturer of high-end smartphones",
+    "country": "USA"
+  },
+  {
+    "id": 2,
+    "name": "MobileWorks",
+    "description": "Affordable phones for everyone",
+    "country": "China"
+  },
+  {
+    "id": 3,
+    "name": "PhoneStandard Corp",
+    "description": "Standard quality phones at great prices",
+    "country": "South Korea"
+  }
+]

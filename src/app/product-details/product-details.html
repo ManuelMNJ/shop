@@ -1,0 +1,11 @@
+<div class="product-details">
+  @if (product) {
+    <h2>{{ product.name }}</h2>
+    <h3>Price: ${{ product.price }}</h3>
+    <p>{{ product.description }}</p>
+    
+    <button (click)="addToCart(product)">Buy</button>
+  } @else {
+    <p>Product not found</p>
+  }
+</div>

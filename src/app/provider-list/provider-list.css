@@ -1,0 +1,64 @@
+h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.providers-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.provider-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.provider-card:hover {
+  transform: translateY(-4px);
+}
+
+.provider-card h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.provider-card h3 a {
+  color: #1976d2;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.provider-card h3 a:hover {
+  text-decoration: underline;
+}
+
+.country {
+  color: #666;
+  font-size: 0.875rem;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.description {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.view-products {
+  display: inline-block;
+  background: #1976d2;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.view-products:hover {
+  background: #1565c0;
+}

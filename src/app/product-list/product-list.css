@@ -1,0 +1,45 @@
+h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.product-item {
+  background: white;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.product-item h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.product-item h3 a {
+  color: #1976d2;
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+.product-item h3 a:hover {
+  text-decoration: underline;
+}
+
+.product-item p {
+  margin: 0.5rem 0;
+  color: #666;
+}
+
+button {
+  background: #1976d2;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+button:hover {
+  background: #1565c0;
+}

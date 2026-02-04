@@ -1,0 +1,16 @@
+<h2>Providers</h2>
+
+<div class="providers-container">
+  @for (provider of providers; track provider.id) {
+    <div class="provider-card">
+      <h3>
+        <a [routerLink]="['/providers', provider.id]">{{ provider.name }}</a>
+      </h3>
+      <p class="country">{{ provider.country }}</p>
+      <p class="description">{{ provider.description }}</p>
+      <a [routerLink]="['/providers', provider.id]" class="view-products">
+        View Products
+      </a>
+    </div>
+  }
+</div>

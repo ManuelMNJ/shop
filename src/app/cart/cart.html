@@ -1,0 +1,32 @@
+<h2>Cart</h2>
+
+@if (items.length > 0) {
+  <div class="cart-items">
+    @for (item of items; track item.id) {
+      <div class="cart-item">
+        <span>{{ item.name }}</span>
+        <span>${{ item.price }}</span>
+      </div>
+    }
+  </div>
+
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <h3>Shipping Information</h3>
+    
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name" placeholder="Enter your name">
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input id="address" type="text" formControlName="address" placeholder="Enter your address">
+    </div>
+
+    <button class="purchase-button" type="submit">Purchase</button>
+  </form>
+
+  <a routerLink="/shipping" class="shipping-link">Shipping Prices</a>
+} @else {
+  <p class="empty-cart">Your cart is empty</p>
+}
