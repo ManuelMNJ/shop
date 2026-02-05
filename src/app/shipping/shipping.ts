@@ -1,6 +1,6 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { CartService } from '../services/cart';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CartService } from '../services/cart';
 
 @Component({
   selector: 'app-shipping',
@@ -11,11 +11,11 @@ import { RouterModule } from '@angular/router';
 })
 export class ShippingComponent implements OnInit {
   cartService = inject(CartService);
-  shippingCosts: any[] = [];
+  shippingCosts = signal<{type: string, price: number}[]>([]);
 
   ngOnInit() {
     this.cartService.getShippingPrices().subscribe(data => {
-      this.shippingCosts = data;
+      this.shippingCosts.set(data);
     });
   }
 }

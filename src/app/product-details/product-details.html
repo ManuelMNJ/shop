@@ -3,8 +3,23 @@
     <h2>{{ product.name }}</h2>
     <h3>Price: ${{ product.price }}</h3>
     <p>{{ product.description }}</p>
+
+    @if(product.stock>5){
+       <p class="green"> Stock: {{ product.stock }}</p>
+    }
+    @if(product.stock>=1 && product.stock <=5){
+       <p class="orange"> Stock: {{ product.stock }}</p>
+    }
+    @if(product.stock===0){
+       <p class="red"> Stock: {{ product.stock }} AGOTADO</p>
+      <button (click)="addToCart(product)" [disabled]="true"  >AGOTADO</button>
+    }@else{
+      <button class="button-true" (click)="addToCart(product)" [disabled]="false"  >Buy</button>
+    }
     
-    <button (click)="addToCart(product)">Buy</button>
+    
+ 
+ 
   } @else {
     <p>Product not found</p>
   }

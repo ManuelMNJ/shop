@@ -1,16 +1,16 @@
-@if (provider) {
-  <div class="provider-header">
-    <h2>{{ provider.name }}</h2>
-    <p class="country">{{ provider.country }}</p>
-    <p class="description">{{ provider.description }}</p>
+@if (provider(); as prov) {
+    <div class="prov-header">
+    <h2>{{prov.name }}</h2>
+    <p class="country">{{prov.country }}</p>
+    <p class="description">{{prov.description }}</p>
   </div>
 
-  <h3>Products from {{ provider.name }}</h3>
+  <h3>Products from {{prov.name }}</h3>
 
-  @if (providerProducts.length > 0) {
-    <div class="products-grid">
-      @for (product of providerProducts; track product.id) {
-        <div class="product-card">
+@if (providerProducts().length > 0) {
+      <div class="products-grid">
+      @for (product of providerProducts(); track product.id) {
+          <div class="product-card">
           <h4>
             <a [routerLink]="['/products', product.id]">{{ product.name }}</a>
           </h4>
@@ -23,9 +23,8 @@
       }
     </div>
   } @else {
-    <p class="no-products">No products available from this provider</p>
+    <p class="no-products">No products available from this {{prov.name}}</p>
   }
-
   <a routerLink="/providers" class="back-link">Back to Providers</a>
 } @else {
   <p>Provider not found</p>

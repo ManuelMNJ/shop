@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ProviderService } from '../services/provider';
 import { Provider } from '../models/provider';
@@ -15,16 +15,16 @@ import { products } from '../products';
 export class ProviderDetailsComponent implements OnInit {
   route = inject(ActivatedRoute);
   providerService = inject(ProviderService);
-  provider: Provider | undefined;
-  providerProducts: Product[] = [];
+  provider = signal<Provider | undefined>(undefined);
+  providerProducts = signal<Product[]>([]);
 
   ngOnInit() {
     const providerId = Number(this.route.snapshot.paramMap.get('providerId'));
     
     this.providerService.getProviders().subscribe(data => {
-      this.provider = data.find(p => p.id === providerId);
+      this.provider.set(data.find(p => p.id === providerId));
     });
 
-    this.providerProducts = products.filter(p => p.providerId === providerId);
+    this.providerProducts.set(products.filter(p => p.providerId === providerId));
   }
 }

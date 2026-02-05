@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ProviderService } from '../services/provider';
 import { Provider } from '../models/provider';
@@ -12,11 +12,11 @@ import { Provider } from '../models/provider';
 })
 export class ProviderListComponent implements OnInit {
   providerService = inject(ProviderService);
-  providers: Provider[] = [];
+  providers = signal<Provider[]>([]);
 
   ngOnInit() {
     this.providerService.getProviders().subscribe(data => {
-      this.providers = data;
+      this.providers.set(data);
     });
   }
 }

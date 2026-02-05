@@ -12,6 +12,16 @@
 
     <p>Price: ${{ product.price }}</p>
 
+     @if(product.stock>5){
+       <p class="green"> Stock: {{ product.stock }}</p>
+    }
+   @if(product.stock>=1 && product.stock <=5){
+       <p class="orange"> Stock: {{ product.stock }}</p>
+    }
+    @if(product.stock===0){
+       <p class="red"> Stock: {{ product.stock }} AGOTADO</p>
+    }
+
     <button type="button" (click)="share()">Share</button>
   </div>
 }
